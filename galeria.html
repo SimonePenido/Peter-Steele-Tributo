@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Peter Steele - Galeria</title>
+    <link rel="icon" type="image/png" href="imagens/favicon.jpg"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    background: #000;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(imagens/img1.1.jpg); /* Recomenda-se alterar a imagem de fundo */
+    height: 40em;
+    background-size: cover;
+    background-position: top center;
+    padding-top: 1px;
+
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 10px;
+    background-color: #b6c9f759;
+    border-radius: 5px;
+    text-shadow: 2px 2px 2px #1c1d22;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    max-width: 100%;
+}
+
+.carousel-caption {
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 6em;
+    margin: 2em 0;
+    text-shadow: 2px 2px 2px #000208;
+    font: 300 1.5rem 'Cinzel', serif;
+}
+
+section.awSlider .carousel {
+    display: table;
+    z-index: 2;
+    -moz-box-shadow: 0 0 4px #444;
+    -webkit-box-shadow: 0 0 4px #444;
+    box-shadow: 0 0 15px rgba(1, 1, 1, .5);
+}
+section.awSlider {
+    margin: 60px auto;
+    padding: 60px 0;
+    position: relative;
+    display: table;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section.awSlider:hover > img {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+section.awSlider img {
+    pointer-events: none;
+}
+
+section.awSlider > img {
+    position: absolute;
+    top: 30px;
+    z-index: 1;
+    transition: all .3s;
+    filter: blur(1.8vw);
+    -webkit-filter: blur(2vw);
+    -moz-filter: blur(2vw);
+    -o-filter: blur(2vw);
+    -ms-filter: blur(2vw);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: .5;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    section.awSlider > img {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    section.awSlider > img {
+        top: 0;
+        left: 0;
+        width: 95%;
+        height: auto;
+    }
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    section.awSlider > img {
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: auto;
+    }
+    
+}
+
+.glyphicon-chevron-left,
+.glyphicon-chevron-right {
+    color: #3457BF; 
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(240, 240, 240);
+    border: 1px solid #3457BF;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 10px;
+    margin-top: 0;
+    color: #fff;
+    letter-spacing: .09em;
+    font-size: 1.6rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px #262626;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.rodape {
+    color: white;
+    background-color: #00010D;
+    text-align: center;
+    padding: 6em 0;
+    margin-top: 3em;
+    text-shadow: 2px 2px 3px #3457BF;
+    letter-spacing: 2px;
+    font-size: .7rem;
+}
+
+.rodape .div_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.rodape .div_icons img {
+    width: 70%; 
+    height: auto;
+}
+
+.div_rodape {
+    margin-top: 1em;
+    font-size: 1.1rem;
+    color: #fff;
+    padding-top: 2rem;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: white;
+}
+
+.rodape a img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+
+    .back-button {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+
+    .rodape {
+        font-size: .6rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <header class="hero">
+        <nav>
+            <div class="hero-content">
+                <h1>Peter Steele</h1>
+            </div>
+        </nav>
+    </header>
+
+    <button class="back-button" onclick="window.location.href='index.html'">Home</button>
+<main>
+    <section class="awSlider">
+        <div class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target=".carousel" data-slide-to="0" class="active"></li>
+                <li data-target=".carousel" data-slide-to="1"></li>
+                <li data-target=".carousel" data-slide-to="2"></li>
+                <li data-target=".carousel" data-slide-to="3"></li>
+                <li data-target=".carousel" data-slide-to="4"></li>
+                <li data-target=".carousel" data-slide-to="5"></li>
+                <li data-target=".carousel" data-slide-to="6"></li>
+                <li data-target=".carousel" data-slide-to="7"></li>
+                <li data-target=".carousel" data-slide-to="8"></li>
+                <li data-target=".carousel" data-slide-to="9"></li>
+                <li data-target=".carousel" data-slide-to="10"></li>
+                <li data-target=".carousel" data-slide-to="11"></li>
+                <li data-target=".carousel" data-slide-to="12"></li>
+                <li data-target=".carousel" data-slide-to="13"></li>
+                <li data-target=".carousel" data-slide-to="14"></li>
+                <li data-target=".carousel" data-slide-to="15"></li>
+                <li data-target=".carousel" data-slide-to="16"></li>
+                <li data-target=".carousel" data-slide-to="17"></li>
+                <li data-target=".carousel" data-slide-to="18"></li>
+                <li data-target=".carousel" data-slide-to="19"></li>
+                <li data-target=".carousel" data-slide-to="20"></li>
+                <li data-target=".carousel" data-slide-to="21"></li>
+                <li data-target=".carousel" data-slide-to="22"></li>
+                <li data-target=".carousel" data-slide-to="23"></li>
+                <li data-target=".carousel" data-slide-to="24"></li>
+                <li data-target=".carousel" data-slide-to="25"></li>
+                <li data-target=".carousel" data-slide-to="26"></li>
+                <li data-target=".carousel" data-slide-to="27"></li>
+                <li data-target=".carousel" data-slide-to="28"></li>
+                <li data-target=".carousel" data-slide-to="29"></li>
+                <li data-target=".carousel" data-slide-to="30"></li>
+                <li data-target=".carousel" data-slide-to="31"></li>
+                <li data-target=".carousel" data-slide-to="32"></li>
+                <li data-target=".carousel" data-slide-to="33"></li>
+                <li data-target=".carousel" data-slide-to="34"></li>
+                <li data-target=".carousel" data-slide-to="35"></li>
+                <li data-target=".carousel" data-slide-to="36"></li>
+                <li data-target=".carousel" data-slide-to="37"></li>
+                <li data-target=".carousel" data-slide-to="38"></li>
+                <li data-target=".carousel" data-slide-to="39"></li>
+                <li data-target=".carousel" data-slide-to="40"></li>
+                <li data-target=".carousel" data-slide-to="41"></li>
+                <li data-target=".carousel" data-slide-to="42"></li>
+                <li data-target=".carousel" data-slide-to="43"></li>
+                <li data-target=".carousel" data-slide-to="44"></li>
+                <li data-target=".carousel" data-slide-to="45"></li>
+                <li data-target=".carousel" data-slide-to="46"></li>
+                <li data-target=".carousel" data-slide-to="47"></li>
+                <li data-target=".carousel" data-slide-to="48"></li>
+                <li data-target=".carousel" data-slide-to="49"></li>
+                <li data-target=".carousel" data-slide-to="50"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="imagens/galeria1.jpg" alt="Peter Steele Imagem 1">
+                    <div class="carousel-caption">Peter Steele: Vocalista e baixista do Type O Negative.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria2.jpg" alt="Peter Steele Imagem 2">
+                    <div class="carousel-caption">Conhecido por sua voz profunda e presença de palco imponente.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria3.jpg" alt="Peter Steele Imagem 3">
+                    <div class="carousel-caption">Líder do Type O Negative, banda ícone do metal gótico.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria4.jpg" alt="Peter Steele Imagem 4">
+                    <div class="carousel-caption">Antes do Type O Negative, esteve à frente do Carnivore.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria5.jpg" alt="Peter Steele Imagem 5">
+                    <div class="carousel-caption">Um olhar marcante do Gigante Verde.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria6.jpg" alt="Peter Steele Imagem 6">
+                    <div class="carousel-caption">Lembrado por seu humor negro e letras introspectivas.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria7.jfif" alt="Peter Steele Imagem 7"> <div class="carousel-caption">Peter Steele (4 de Janeiro, 1962 – 14 de Abril, 2010).</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria8.jpg" alt="Peter Steele Imagem 8">
+                    <div class="carousel-caption">Ao vivo com o Type O Negative, energia inconfundível.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria9.jpg" alt="Peter Steele Imagem 9">
+                    <div class="carousel-caption">O legado de Peter Steele vive através de sua música atemporal.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria10.png" alt="Peter Steele Imagem 10"> <div class="carousel-caption">Uma figura inesquecível e influente no cenário do metal.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria11.jpg" alt="Peter Steele Imagem 11">
+                    <div class="carousel-caption">Imagem em tributo a Peter Steele.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria12.jpg" alt="Peter Steele Imagem 12">
+                    <div class="carousel-caption">O som único do Type O Negative marcou uma geração.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria13.jpg" alt="Peter Steele Imagem 13">
+                    <div class="carousel-caption">Peter Steele e sua icônica imagem.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria14.jpg" alt="Peter Steele Imagem 14">
+                    <div class="carousel-caption">Momentos da carreira de Peter Steele.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria15.jpg" alt="Peter Steele Imagem 15">
+                    <div class="carousel-caption">O Gigante Verde no palco.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria16.jpg" alt="Peter Steele Imagem 16">
+                    <div class="carousel-caption">Legado musical de Peter Steele.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria17.jpg" alt="Peter Steele Imagem 17">
+                    <div class="carousel-caption">Homenagem a Peter Steele.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria18.jpg" alt="Peter Steele Imagem 18">
+                    <div class="carousel-caption">Type O Negative: som e estética marcantes.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria19.jpg" alt="Peter Steele Imagem 19">
+                    <div class="carousel-caption">Relembrando Peter Steele.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria20.jpg" alt="Peter Steele Imagem 20">
+                    <div class="carousel-caption">A voz inconfundível de Peter Steele.</div>
+                </div>
+                 <div class="item">
+                    <img src="imagens/galeria21.jpg" alt="Peter Steele Imagem 21">
+                    <div class="carousel-caption">Tributo ao frontman do Type O Negative.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria22.jpg" alt="Peter Steele Imagem 22">
+                    <div class="carousel-caption">Influência duradoura no metal gótico.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria23.jpg" alt="Peter Steele Imagem 23">
+                    <div class="carousel-caption">Peter Steele: Um ícone.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria24.jpg" alt="Peter Steele Imagem 24">
+                    <div class="carousel-caption">Sua música continua a inspirar.</div>
+                </div>
+                <div class="item">
+                    <img src="imagens/galeria25.jpg" alt="Peter Steele Imagem 25">
+                    <div class="carousel-caption">Recordando a arte de Peter Steele.</div>
+                </div>
+                <div class="item"><img src="imagens/galeria26.jpg" alt="Peter Steele Imagem 26"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria27.jpg" alt="Peter Steele Imagem 27"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria28.jpg" alt="Peter Steele Imagem 28"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria29.jpg" alt="Peter Steele Imagem 29"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria30.jpg" alt="Peter Steele Imagem 30"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria31.jpg" alt="Peter Steele Imagem 31"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria32.jpg" alt="Peter Steele Imagem 32"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria33.jpg" alt="Peter Steele Imagem 33"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria34.jpg" alt="Peter Steele Imagem 34"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria35.jpg" alt="Peter Steele Imagem 35"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria36.jpg" alt="Peter Steele Imagem 36"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria37.jpg" alt="Peter Steele Imagem 37"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria38.jpg" alt="Peter Steele Imagem 38"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria39.jpg" alt="Peter Steele Imagem 39"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria40.jpg" alt="Peter Steele Imagem 40"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria41.jpg" alt="Peter Steele Imagem 41"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria42.jpg" alt="Peter Steele Imagem 42"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria43.jpg" alt="Peter Steele Imagem 43"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria44.jpg" alt="Peter Steele Imagem 44"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria45.jpg" alt="Peter Steele Imagem 45"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria46.jpg" alt="Peter Steele Imagem 46"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria47.jpg" alt="Peter Steele Imagem 47"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria48.jpg" alt="Peter Steele Imagem 48"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria49.jpg" alt="Peter Steele Imagem 49"><div class="carousel-caption">Peter Steele - Imagem de Tributo.</div></div>
+                <div class="item"><img src="imagens/galeria50.jpg" alt="Peter Steele Imagem 50"><div class="carousel-caption">Peter Steele - Eterno Legado.</div></div>
+            </div>
+
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Voltar</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Avançar</span>
+            </a>
+        </div>
+    </section>
+</main>
+        <footer class="rodape">
+        <div class="div_icons">
+            <div><a href="https://www.facebook.com/typeonegative" Alt="Facebook Type O Negative" target="_blank"><img
+                src="imagens/facebook.png" alt="Icon By @Flaticon"></a>
+            </div>
+            <div><a href="https://www.instagram.com/typeonegativeofficial/" Alt="Instagram Type O Negative" target="_blank"><img
+                src="imagens/instagram.png" alt="Icon By @Flaticon"></a>
+            </div>
+            <div><a href="https://x.com/typeonegative" Alt="X Type O Negative" target="_blank"><img
+                src="imagens/twitter.png" alt="Icon By @Flaticon"></a>
+            </div>
+            <div><a href="https://www.youtube.com/embed/zYhcRn_34ko?si=nrfrcptzseKhRJMb6" target="_blank" Alt="Youtube Type O Negative"><img src="imagens/youtube.png" alt="Icon By @Flaticon"></a>
+            </div>
+        </div>
+        <br>
+        <div class="div_rodape">
+            Desenvolvido por: <a href="https://www.linkedin.com/in/simone-penido/" target="_blank">Simone Penido</a>
+        </div>
+    </footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+
+
+    <script>
+        $('section.awSlider .carousel').carousel({
+            pause: "hover",
+            interval: 2000 /* Altere o intervalo conforme desejado, 2000 = 2 segundos */
+        });
+
+        var startImage = $('section.awSlider .item.active > img').attr('src');
+        $('section.awSlider').append('<img src="' + startImage + '">');
+
+        $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+            var bscn = $(this).find('.item.active > img').attr('src');
+            $('section.awSlider > img').attr('src', bscn);
+        });
+    </script>
+</body>
+
+</html>
