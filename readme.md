@@ -1,6 +1,6 @@
 # Peter Steele Tributo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-badge-id/deploy-status)](https://peter-steele-tributo.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/SimonePenido-netlify-badge-id/deploy-status)](https://peter-steele-tribute.netlify.app)
 ![GitHub last commit](https://img.shields.io/github/last-commit/SimonePenido/Peter-Steele-Tributo)
 ![GitHub repo size](https://img.shields.io/github/repo-size/SimonePenido/Peter-Steele-Tributo)
 ![GitHub issues](https://img.shields.io/github/issues/SimonePenido/Peter-Steele-Tributo)
