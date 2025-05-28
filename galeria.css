@@ -10,6 +10,13 @@ body {
     background: #000;
 }
 
+article {
+    background-color: rgba(233, 228, 228, 0.753);
+    padding: 16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
 .hero {
     display: flex;
     justify-content: center;
@@ -88,7 +95,7 @@ iframe {
     -o-filter: grayscale(1);
     -ms-filter: grayscale(1);
 margin-top: 6em;   
-    padding: 25em;
+    padding: 20em;
 }
 
 .secao-background:hover {
@@ -106,6 +113,7 @@ margin-top: 6em;
     text-shadow: 2px 2px 2px #000208;
     font: 300 1.5rem 'Cinzel', serif;
 }
+
 
 section.awSlider .carousel {
     display: table;
@@ -168,7 +176,7 @@ section.awSlider > img {
     section.awSlider > img {
         top: 0;
         left: 0;
-        width: 95%;
+        width: 90%;
         height: auto;
     }
     
@@ -178,7 +186,7 @@ section.awSlider > img {
     section.awSlider > img {
         top: 0;
         left: 0;
-        width: 90%;
+        width: 80%;
         height: auto;
     }
     
