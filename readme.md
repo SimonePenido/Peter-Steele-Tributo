@@ -26,16 +26,13 @@ Acesse o site em produção:
 ## 📈 Destaques Técnicos
 
 - Código limpo e modular
-- SEO otimizado
 - Design responsivo
 - Deploy contínuo via Netlify
 
 ## 👨‍💻 Contato
 
-- [LinkedIn](https://www.linkedin.com/in/seu-usuario)
-- [GitHub](https://github.com/seu-usuario)
-- [Twitter](https://twitter.com/seu-usuario)
-- Email: seu-email@dominio.com
+- [LinkedIn](https://www.linkedin.com/in/simone-penido)
+- Email: simonedev.ia@gmail.com
 
 ---
 
