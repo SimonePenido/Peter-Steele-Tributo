@@ -1,24 +1,38 @@
+/* === RESET BÁSICO E ESTILOS GLOBAIS === */
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box; /* Para compatibilidade com navegadores mais antigos */
+    -moz-box-sizing: border-box;    /* Para compatibilidade com navegadores mais antigos */
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+    margin: 0; /* Já está no reset, mas pode ser mantido para clareza */
     font-family: 'Cinzel', serif;
+    line-height: 1.6; /* Uma boa prática para legibilidade */
+    color: #333; /* Cor de texto padrão, se não especificada */
 }
 
-section {
-    max-width: 70%;
-    margin: 0 auto;
-
-}
-.container {
+/* === CONTAINERS PRINCIPAIS === */
+.container { /* Container geral para limitar a largura do conteúdo */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* Largura máxima do conteúdo principal */
     margin: 0 auto;
     padding: 20px;
+}
+
+section { /* Pode ser usado para agrupar conteúdo dentro do .container ou como container alternativo */
+    /* A regra original 'max-width: 70%' pode ser muito restritiva.
+       Se usado como container principal, talvez 'max-width: 1200px; padding: 20px; margin: 0 auto;' seja mais consistente.
+       Vou manter a lógica de um container principal e seções internas. */
+    width: 100%; /* Ocupa a largura do pai (ex: .container) */
+    padding: 0 10px; /* Espaçamento lateral para seções dentro do container */
+}
+
+/* === HERO SECTION === */
+.hero { /* Assumindo que .hero envolve o conteúdo do topo */
+    /* Estilos para o container do hero, se houver um específico */
 }
 
 .hero-content {
@@ -26,7 +40,7 @@ section {
     width: 80%;
     text-align: center;
     color: white;
-    letter-spacing: 1em;
+    letter-spacing: 0.1em; /* 1em era muito grande, ajustado para um valor mais comum */
 }
 
 .hero-content h1 {
@@ -34,14 +48,18 @@ section {
     border-radius: 5px;
     font-size: 4rem;
     text-shadow: 3px 3px 3px #091805;
+    -webkit-text-stroke: 0.1px #17181748; /* Uso moderado, não é padrão */
+    text-stroke: 0.1px #17181748;      /* Uso moderado, não é padrão */
     text-transform: uppercase;
     margin-bottom: 0;
     color: #00ff00ab;
 }
 
+/* Navegação Principal (Hero) */
 .hero nav ul {
     margin: 20px 80px 0 0;
     text-align: right;
+    padding-left: 0; /* Remover padding padrão de ul */
 }
 
 .hero nav li {
@@ -59,169 +77,145 @@ section {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .8rem;
+    font-size: .8rem; /* Será ajustado em media queries */
     letter-spacing: 2px;
-    border-radius: 10px;
-}
-
-.hero nav a:focus {
-    outline: 2px solid #00ff00c2;
-    outline-offset: 4px;
+    border-radius: 10px; /* Herdado do li, mas pode ser explícito */
+    -webkit-transition: background-color 0.3s ease, outline 0.3s ease;
+    transition: background-color 0.3s ease, outline 0.3s ease;
 }
 
 .hero nav a:hover {
     background-color: rgba(112, 110, 110, 0.5);
-    border-radius: 10px;
 }
 
-main {
+.hero nav a:focus {
+    outline: 2px solid #00ff00c2;
+    outline-offset: 4px; /* Boa prática para acessibilidade */
+}
+
+/* === MAIN CONTENT === */
+main { /* Elemento <main> */
     width: 100%;
-    margin: auto;
-    padding: 20px;
+    margin: auto; /* Já centralizado se for filho de body sem largura definida */
+    padding: 0; /* O .container interno ou as sections controlarão o padding */
 }
 
-#main {
+#main { /* ID para estilizar a seção principal, provavelmente o body ou um wrapper grande */
     background-image: url(imagens/fundo_preto.jpg);
     background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    -webkit-background-size: cover; /* Compatibilidade */
+    background-attachment: fixed; /* Problemas em mobile, será ajustado */
+    background-position: center center;
 }
 
 article {
     background-color: rgba(233, 228, 228, 0.753);
     padding: 16px;
-    margin-bottom: 32px;
     margin-top: 32px;
+    margin-bottom: 32px;
+    border-radius: 5px; /* Adicionado para consistência visual */
 }
 
 article h2 {
     border-bottom: 2px solid #ccc;
     background-color: #00ff00c2;
     padding: 10px;
-    margin-top: 0;
+    margin-top: 0; /* Boa prática, o espaçamento superior vem do article */
     color: #000;
     letter-spacing: .09em;
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 4px 3px #fff;
-    -webkit-text-stroke: #17181748 0.1px;
+    -webkit-text-stroke: 0.1px #17181748;
+    text-stroke: 0.1px #17181748;
 }
 
 article p {
-    font-family: Arial;
+    font-family: Arial, sans-serif; /* Adicionado fallback para Arial */
     font-size: 1rem;
     text-align: justify;
     letter-spacing: .08rem;
-    line-height: 1.5rem;
-    margin: 1em 2em 1em;
+    line-height: 1.7; /* Aumentado ligeiramente para melhor leitura */
+    margin: 1em 1em 1em; /* Margem lateral reduzida para telas menores, ajustável por media query */
 }
 
 article a {
     text-decoration: none;
     color: rgba(0, 0, 0, .7);
     font-weight: 800;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+article a:hover {
+    color: #00ff00c2; /* Exemplo de cor de hover */
 }
 
-.bloco-conteudo-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
 
+/* Blocos de Conteúdo Flex (Texto e Imagem) */
+/* Esta é a definição unificada. A anterior com flex-wrap foi removida.
+   Se precisar de um layout diferente para outros blocos, use uma classe diferente. */
 .bloco-conteudo-flex {
     display: flex;
-    gap: 16px;
+    gap: 24px; /* Aumentado um pouco para mais respiro */
     justify-content: center;
     align-items: center;
-    margin: 24px 0;
+    margin: 32px 0; /* Aumentado um pouco */
 }
 
 .bloco-conteudo-flex img {
     max-width: 350px;
+    width: 100%; /* Para responsividade até o max-width */
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px; /* Consistente com outros border-radius */
     display: block;
-    margin-left: 1em;
-    margin-right: 1em;
+    /* margin-left/right removidos, o gap e justify-content do flex container cuidam disso */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
-@media (max-width: 768px) {
-    .bloco-conteudo-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-    .bloco-conteudo-flex > div,
-    .bloco-conteudo-flex > img {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .bloco-conteudo-flex > div[style*="flex: 1"] {
-        text-align: left;
-    }
-    .bloco-conteudo-flex img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        height: auto;
-    }
-    .bloco-conteudo-flex > div[style*="display: flex"] {
-        flex-direction: column;
-        align-items: center;
-    }
-    .bloco-conteudo-flex > div[style*="display: flex"] > div[style*="flex: 1"] {
-        display: none;
-    }
+/* Para os elementos internos que usavam style* - Idealmente, use classes no HTML */
+.bloco-conteudo-flex > div[style*="flex: 1"] {
+    /* Estilos base para o container de texto */
+}
+.bloco-conteudo-flex > div[style*="display: flex"] { /* Container da imagem (ex: gato) */
+    /* Estilos base se necessário */
 }
 
 
-
+/* === VÍDEOS === */
 .container-video {
     display: flex;
     width: 100%;
-    flex-wrap: nowrap;
-    gap: 10px;
+    flex-wrap: nowrap; /* Mantido, mas pode ser 'wrap' se desejar quebra em telas médias */
+    gap: 20px; /* Aumentado */
 }
 
 .video-wrapper {
-    flex: 1 1 45%;
+    flex: 1 1 45%; /* Permite encolher e crescer, base de 45% */
+    min-width: 280px; /* Para evitar que fique muito pequeno antes de empilhar */
 }
 
 .video-wrapper iframe {
     width: 100%;
-    height: 400px;
-    border-radius: 5px;
+    height: 400px; /* Será ajustado em media query */
+    border-radius: 8px;
+    border: none; /* Remover borda padrão do iframe */
 }
 
-.play {
+.play { /* Classe para player de áudio/vídeo personalizado? */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     padding: 1em;
+    /* Adicionar mais estilos se for um controle customizado */
 }
 
-@media screen and (max-width: 768px) {
-    .container-video {
-        flex-direction: column;
-    }
-
-    .video-wrapper iframe {
-        height: 200px;
-    }
-
-}
-
-/* Estilo da galeria de imagens */
+/* === GALERIA DE IMAGENS === */
 .galeria-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* Padrão para desktop */
+    gap: 16px; /* Aumentado */
     margin-top: 20px;
     margin-bottom: 30px;
 }
@@ -230,153 +224,177 @@ article a {
     width: 100%;
     height: auto;
     cursor: pointer;
-    transition: transform 0.2s;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .galeria-container img:hover {
+    -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-@media screen and (max-width: 768px) {
-    .galeria-container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
+/* === BOTÕES === */
+.botao_galeria, .btn { /* Estilo comum para botões */
+    display: inline-block; /* Para que width: fit-content funcione bem e permita margin auto */
+    padding: 12px 24px; /* Padding aumentado */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px; /* Reduzido para melhor leitura */
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .botao_galeria {
     background-color: #00ff00c2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
     color: #000;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 2px #def8cc;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin: auto;
+    text-shadow: 1px 1px 1px #def8cc; /* Ajustado */
+    margin: 20px auto; /* Para centralizar se for display block ou inline-block com text-align center no pai */
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
+.botao_galeria:hover {
+    background-color: #00e600b0;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
 
-.btn {
+.btn { /* Botão genérico */
     background-color: #cdc7c3;
-    display: block;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-left: auto;
+    color: #333;
+    margin-left: auto; /* Mantido */
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
+.btn:hover {
+    background-color: #b9b3af;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
 
+/* === ÍCONES SOCIAIS === */
 .div_icons {
     display: flex;
     justify-content: center;
+    align-items: center; /* Adicionado para alinhar verticalmente os ícones se tiverem alturas diferentes */
+    padding: 1em 0;
 }
 
 .div_icons img {
-    align-items: center;
     padding: 1rem;
-    width: 2rem;
+    width: 4rem; /* Ajustado para um valor intermediário, pode ser responsivo */
+    height: auto; /* Para manter proporção */
+    -webkit-transition: transform 0.3s ease; /* Ajustada duração e timing function */
+    transition: transform 0.3s ease;
 }
 
 .div_icons img:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s ease-in-out;
+    -webkit-transform: scale(1.15); /* Aumentado um pouco o scale */
+    transform: scale(1.15);
 }
 
-.div_icons {
-    display: flex;
-    justify-content: center;
-}
-
-.div_icons img {
-    align-items: center;
-    padding: 1rem;
-    width: 5rem;
-}
-
-/* Overlay de tela cheia */
+/* === OVERLAY DE IMAGEM (Lightbox) === */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.918);
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.9); /* Levemente mais claro */
+    display: none; /* Escondido por padrão, JS controla a exibição */
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    opacity: 0; /* Para transição de fade */
+    visibility: hidden; /* Para transição de fade */
+    -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#overlay.active { /* Classe a ser adicionada via JS */
+    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 #overlay img.fullscreen {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90vw; /* Usar unidades de viewport para melhor responsividade */
+    max-height: 90vh;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,255,0,0.5);
 }
 
-/* Estiliza os botões de navegação em tela cheia */
 #overlay button {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    color: black;
-    font-size: 2rem;
-    padding: 10px;
+    background-color: rgba(46, 46, 46, 0.5); /* Cor de fundo mais escura */
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #00ff00c2; /* Cor do ícone */
+    font-size: 2.5rem; /* Aumentado */
+    padding: 8px 15px; /* Ajustado */
     cursor: pointer;
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    border-radius: 50%; /* Botões redondos */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-#overlay button.prev {
-    left: 10px;
-}
-
-#overlay button.next {
-    right: 10px;
-}
+#overlay button.prev { left: 20px; }
+#overlay button.next { right: 20px; }
 
 #overlay button:hover {
     background-color: #00ff00c2;
+    color: #000;
+    border-color: #00ff00c2;
 }
 
-
-
-
-.secao-divulgacao {
-    background-image: url("imagens/sobre02.png");
+/* === SEÇÕES DE DIVULGAÇÃO (Parallax Fixo) === */
+.secao-divulgacao, .secao-divulgacao1 {
     background-size: contain;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Problemas em mobile, será ajustado */
     background-position: center center;
-    height: 40em;
+    min-height: 40em; /* Usar min-height para garantir que o conteúdo interno seja visível */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 3em 0; /* Removida margem lateral, o container pai controla */
+    -webkit-transition: filter 0.5s ease-in-out;
+    transition: filter 0.5s ease-in-out;
+}
+
+.secao-divulgacao {
+    background-image: url("imagens/sobre02.png");
+    -webkit-filter: grayscale(0.9);
     filter: grayscale(0.9);
-    margin: 3em;
 }
 
 .secao-divulgacao1 {
     background-image: url("imagens/sobre2.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    height: 40em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
 
 .secao-divulgacao:hover,
 .secao-divulgacao1:hover {
+    -webkit-filter: grayscale(0.1);
     filter: grayscale(0.1);
 }
 
+/* === RODAPÉ === */
 .rodape {
     color: white;
     background-color: #050704;
@@ -384,100 +402,268 @@ article a {
     padding: 1.8rem;
     text-shadow: 2px 2px 3px #091805;
     letter-spacing: 2px;
-    font-size: .7rem;
+    font-size: .8rem; /* Aumentado um pouco */
 }
 
 .rodape a {
     text-decoration: none;
     color: white;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+.rodape a:hover {
+    color: #00ff00c2; /* Efeito hover para links no rodapé */
 }
 
-@media screen and (min-width: 48em) {
-    /*768px maior que*/
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .header_nav ul {
-        margin-right: 2em;
-        font-size: .7em;
-    }
-
-    .header_nav li {
-        display: inline-flex;
-    }
-
-    .header {
-        text-align: center;
-        margin: auto;
-    }
-
-    .hero nav a {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-    }
-}
-
-.slid {
+/* === SLIDER DE IMAGENS === */
+.slid { /* Container para centralizar o slider, se necessário */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 2em 0; /* Aumentado padding vertical */
 }
 
-@-webkit-keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-330px * 7));
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-330px * 7));
-    }
-}
 .slider {
-    background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 400px;
+    background: #1c1c1c; /* Fundo mais escuro para contraste */
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.25);
+    height: 400px; /* Altura fixa, pode ser responsiva se as imagens tiverem aspect-ratio consistente */
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 960px;
+    width: 100%; /* Responsivo */
+    max-width: 960px; /* Largura máxima do slider original */
 }
-.slider::before, .slider::after {
-    background: linear-gradient(to right, rgb(0, 10, 0) 0%, rgba(255, 255, 255, 0) 100%);
+
+.slider::before, .slider::after { /* Efeito de fade nas laterais */
+    background: linear-gradient(to right, rgb(5, 7, 4) 0%, rgba(5, 7, 4, 0) 100%); /* Ajustado para fundo escuro */
     content: "";
-    height: 400px;
+    height: 100%; /* Ajustado para altura do slider */
     position: absolute;
-    width: 200px;
+    top: 0; /* Alinhado ao topo */
+    width: 100px; /* Reduzido um pouco */
     z-index: 2;
 }
+
 .slider::after {
     right: 0;
-    top: 0;
+    -webkit-transform: rotateZ(180deg);
     transform: rotateZ(180deg);
 }
+
 .slider::before {
     left: 0;
-    top: 0;
 }
+
 .slider .slide-track {
     -webkit-animation: scroll 40s linear infinite;
-                    animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
     display: flex;
+    /* width: calc(330px * 14); A largura do slide (330px) pode precisar ser responsiva.
+       Se for, este cálculo e a animação precisarão de ajuste. */
+    width: -webkit-calc(330px * 14); /* Para animação baseada em largura fixa */
     width: calc(330px * 14);
 }
+
 .slider .slide {
-    height: 400px;
-    width: 330px;
+    height: 400px; /* Consistente com a altura do slider */
+    width: 330px; /* Largura fixa do slide, impacta a responsividade do carrossel */
+    /* Idealmente, as imagens dentro do slide devem ser responsivas (max-width: 100%, height: auto) */
+}
+.slider .slide img { /* Para garantir que a imagem preencha o slide */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para preencher o slide sem distorcer */
+}
+
+
+/* === ANIMAÇÕES === */
+@-webkit-keyframes scroll {
+    0% { -webkit-transform: translateX(0); transform: translateX(0); }
+    100% { -webkit-transform: translateX(calc(-330px * 7)); transform: translateX(calc(-330px * 7)); } /* Metade do track para loop */
+}
+@keyframes scroll {
+    0% { -webkit-transform: translateX(0); transform: translateX(0); }
+    100% { -webkit-transform: translateX(calc(-330px * 7)); transform: translateX(calc(-330px * 7)); }
+}
+
+
+/* === MEDIA QUERIES === */
+
+/* Telas Pequenas (Smartphones) - até 767px */
+@media screen and (max-width: 767px) {
+    .hero-content {
+        margin-top: 100px; /* Reduzido */
+        width: 90%;
+        letter-spacing: 0.05em; /* Reduzido */
+    }
+    .hero-content h1 {
+        font-size: 2.5rem; /* Reduzido */
+    }
+
+    .hero nav ul {
+        margin: 20px 10px 0 0; /* Margem direita reduzida */
+        text-align: center; /* Centralizar nav em mobile */
+    }
+    .hero nav li {
+        display: block; /* Empilhar itens */
+        margin: 0 0 10px 0; /* Espaçamento entre itens empilhados */
+        width: 80%; /* Para não ocupar a tela toda */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero nav a {
+        font-size: 0.9rem; /* Aumentar um pouco para toque */
+        padding: 0.9rem;
+    }
+
+    #main, .secao-divulgacao, .secao-divulgacao1 {
+        background-attachment: scroll; /* Melhor para performance e compatibilidade em mobile */
+    }
+
+    article p {
+        margin: 1em 0.5em 1em; /* Reduzir margens laterais do parágrafo */
+        letter-spacing: normal; /* Normalizar espaçamento para melhor leitura em telas pequenas */
+    }
+
+    .bloco-conteudo-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .bloco-conteudo-flex > div,
+    .bloco-conteudo-flex > img {
+        width: 100% !important; /* Garante que ocupe toda a largura na coluna */
+        max-width: 100% !important; /* Evita que a imagem exceda se tiver max-width fixo menor */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    /* Este seletor é frágil. Se possível, adicione classes no HTML */
+    .bloco-conteudo-flex > div[style*="flex: 1"] {
+        text-align: left; /* Ou center, dependendo do design */
+    }
+    .bloco-conteudo-flex img { /* Imagens dentro do bloco já são width 100% pelo seletor acima */
+        max-width: 90%; /* Limita a imagem a 90% do container para não colar nas bordas */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Para o container da imagem de gato, que também se torna coluna */
+    .bloco-conteudo-flex > div[style*="display: flex"] {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    /* Oculta o spacer div dentro do container da imagem de gato em mobile */
+    .bloco-conteudo-flex > div[style*="display: flex"] > div[style*="flex: 1"] {
+        display: none;
+    }
+
+
+    .container-video {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .video-wrapper iframe {
+        height: 250px; /* Altura ajustada para mobile */
+    }
+
+    .galeria-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em mobile */
+        gap: 10px;
+    }
+    .galeria-container img:hover { /* Desabilitar hover scale em touch devices ou manter sutil */
+        -webkit-transform: none;
+        transform: none;
+    }
+    
+    .secao-divulgacao, .secao-divulgacao1 {
+        min-height: 25em; /* Altura reduzida */
+        margin: 2em 0;
+    }
+
+    .div_icons img {
+        width: 3rem; /* Ícones menores em mobile */
+        padding: 0.5rem;
+    }
+
+    #overlay button {
+        font-size: 1.8rem;
+        padding: 5px 10px;
+        width: 40px;
+        height: 40px;
+    }
+    #overlay button.prev { left: 5px; }
+    #overlay button.next { right: 5px; }
+
+    .slider { height: 250px; } /* Altura do slider menor */
+    .slider .slide { height: 250px; } /* Altura do slide menor */
+    .slider::before, .slider::after { height: 250px; width: 50px; }
+}
+
+/* Telas Médias (Tablets) - de 768px até 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 15px;
+    }
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    .hero nav ul {
+        margin-right: 40px;
+    }
+    .hero nav a {
+        font-size: 0.9rem;
+    }
+
+    article p {
+        margin: 1em 1.5em 1em;
+    }
+    
+    /* Ajustes para bloco-conteudo-flex em tablet, se diferente do mobile ou desktop */
+    /* Por padrão, ele voltará ao display:flex row. Se quiser coluna, defina aqui. */
+    /* Exemplo: se ainda quiser empilhado em tablets verticais */
+    /* .bloco-conteudo-flex { flex-direction: column; } */
+
+    .video-wrapper iframe {
+        height: 320px;
+    }
+
+    .galeria-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablet */
+    }
+
+    .secao-divulgacao, .secao-divulgacao1 {
+        min-height: 30em;
+    }
+}
+
+/* Telas Grandes (Monitores Padrão) - de 1024px até 1200px */
+/* Os estilos base já cobrem bem esta faixa se o .container tem max-width: 1200px.
+   Adicione aqui apenas se precisar de ajustes específicos para esta faixa. */
+@media screen and (min-width: 1024px) {
+    /* O .header e .header_nav que estavam na query min-width: 48em podem vir para cá
+       se forem específicos para desktop. */
+    .header { /* Supondo que você tenha uma classe .header */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* text-align: center; e margin: auto; (do seu código original) são contraditórios com flex. Ajuste conforme necessário. */
+    }
+
+    .hero nav a { /* Retomando o tamanho maior para desktop */
+        font-size: 1rem; /* Ou o .8rem original se preferir */
+        letter-spacing: 2px;
+    }
+    
+    .galeria-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas como no design original para desktop */
+    }
+}
+
+/* Telas Extra Grandes - acima de 1200px (ou 1201px para evitar sobreposição com max-width do .container) */
+@media screen and (min-width: 1201px) {
+    .hero-content h1 {
+        font-size: 4.5rem; /* Um pouco maior para telas bem grandes */
+    }
+    /* Outros ajustes para aproveitar mais espaço em telas muito largas */
 }
