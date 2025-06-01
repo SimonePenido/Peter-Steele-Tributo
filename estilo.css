@@ -1,46 +1,48 @@
-/* === RESET BÁSICO E ESTILOS GLOBAIS === */
 * {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box; /* Para compatibilidade com navegadores mais antigos */
-    -moz-box-sizing: border-box;    /* Para compatibilidade com navegadores mais antigos */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0; /* Já está no reset, mas pode ser mantido para clareza */
-    font-family: 'Cinzel', serif;
-    line-height: 1.6; /* Uma boa prática para legibilidade */
-    color: #333; /* Cor de texto padrão, se não especificada */
+    margin: 0;
+    font-family: 'Cinzel', sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
-/* === CONTAINERS PRINCIPAIS === */
-.container { /* Container geral para limitar a largura do conteúdo */
+.container {
     width: 100%;
-    max-width: 1200px; /* Largura máxima do conteúdo principal */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-section { /* Pode ser usado para agrupar conteúdo dentro do .container ou como container alternativo */
-    /* A regra original 'max-width: 70%' pode ser muito restritiva.
-       Se usado como container principal, talvez 'max-width: 1200px; padding: 20px; margin: 0 auto;' seja mais consistente.
-       Vou manter a lógica de um container principal e seções internas. */
-    width: 100%; /* Ocupa a largura do pai (ex: .container) */
-    padding: 0 10px; /* Espaçamento lateral para seções dentro do container */
+section {
+    width: 100%;
+    padding: 0 10px;
 }
 
-/* === HERO SECTION === */
-.hero { /* Assumindo que .hero envolve o conteúdo do topo */
-    /* Estilos para o container do hero, se houver um específico */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
 }
 
 .hero-content {
-    margin: 200px auto 0;
+    margin: auto 0;
     width: 80%;
     text-align: center;
     color: white;
-    letter-spacing: 0.1em; /* 1em era muito grande, ajustado para um valor mais comum */
+    letter-spacing: 0.1em;
 }
 
 .hero-content h1 {
@@ -48,18 +50,16 @@ section { /* Pode ser usado para agrupar conteúdo dentro do .container ou como 
     border-radius: 5px;
     font-size: 4rem;
     text-shadow: 3px 3px 3px #091805;
-    -webkit-text-stroke: 0.1px #17181748; /* Uso moderado, não é padrão */
-    text-stroke: 0.1px #17181748;      /* Uso moderado, não é padrão */
+    -webkit-text-stroke: 0.1px #17181748;
     text-transform: uppercase;
     margin-bottom: 0;
     color: #00ff00ab;
 }
 
-/* Navegação Principal (Hero) */
 .hero nav ul {
     margin: 20px 80px 0 0;
     text-align: right;
-    padding-left: 0; /* Remover padding padrão de ul */
+    padding-left: 0;
 }
 
 .hero nav li {
@@ -77,9 +77,9 @@ section { /* Pode ser usado para agrupar conteúdo dentro do .container ou como 
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .8rem; /* Será ajustado em media queries */
+    font-size: .8rem;
     letter-spacing: 2px;
-    border-radius: 10px; /* Herdado do li, mas pode ser explícito */
+    border-radius: 10px;
     -webkit-transition: background-color 0.3s ease, outline 0.3s ease;
     transition: background-color 0.3s ease, outline 0.3s ease;
 }
@@ -90,37 +90,58 @@ section { /* Pode ser usado para agrupar conteúdo dentro do .container ou como 
 
 .hero nav a:focus {
     outline: 2px solid #00ff00c2;
-    outline-offset: 4px; /* Boa prática para acessibilidade */
+    outline-offset: 4px;
 }
+.hero {
+    background-image: url('/imagens/Fundo.jpg');
+    height: 900px;
+    background-size: cover;
+    background-position: center center;
+    padding-bottom: 0;
+        }
 
-/* === MAIN CONTENT === */
-main { /* Elemento <main> */
+main {
     width: 100%;
-    margin: auto; /* Já centralizado se for filho de body sem largura definida */
-    padding: 0; /* O .container interno ou as sections controlarão o padding */
+    margin: auto;
+    padding: 0;
+    margin-bottom: 0;
 }
 
-#main { /* ID para estilizar a seção principal, provavelmente o body ou um wrapper grande */
+#main {
     background-image: url(imagens/fundo_preto.jpg);
     background-size: cover;
-    -webkit-background-size: cover; /* Compatibilidade */
-    background-attachment: fixed; /* Problemas em mobile, será ajustado */
+    -webkit-background-size: cover;
+    background-attachment: fixed;
     background-position: center center;
 }
 
 article {
-    background-color: rgba(233, 228, 228, 0.753);
+    background-color: rgba(233, 228, 228, 0.661);
     padding: 16px;
     margin-top: 32px;
     margin-bottom: 32px;
-    border-radius: 5px; /* Adicionado para consistência visual */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #00ff00c2;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #000;
 }
 
 article h2 {
     border-bottom: 2px solid #ccc;
-    background-color: #00ff00c2;
+    background-color: #00ff00a1;
     padding: 10px;
-    margin-top: 0; /* Boa prática, o espaçamento superior vem do article */
+    margin-top: 0;
     color: #000;
     letter-spacing: .09em;
     font-size: 1.6rem;
@@ -128,16 +149,17 @@ article h2 {
     text-align: center;
     text-shadow: 1px 4px 3px #fff;
     -webkit-text-stroke: 0.1px #17181748;
-    text-stroke: 0.1px #17181748;
 }
 
 article p {
-    font-family: Arial, sans-serif; /* Adicionado fallback para Arial */
+    font-family: Arial, sans-serif;
     font-size: 1rem;
     text-align: justify;
     letter-spacing: .08rem;
-    line-height: 1.7; /* Aumentado ligeiramente para melhor leitura */
-    margin: 1em 1em 1em; /* Margem lateral reduzida para telas menores, ajustável por media query */
+    line-height: 1.7;
+    margin: 1em 1em 1em;
+    color: #000;
+    font-weight: 510;
 }
 
 article a {
@@ -147,75 +169,47 @@ article a {
     -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
-article a:hover {
-    color: #00ff00c2; /* Exemplo de cor de hover */
-}
 
-
-/* Blocos de Conteúdo Flex (Texto e Imagem) */
-/* Esta é a definição unificada. A anterior com flex-wrap foi removida.
-   Se precisar de um layout diferente para outros blocos, use uma classe diferente. */
 .bloco-conteudo-flex {
     display: flex;
-    gap: 24px; /* Aumentado um pouco para mais respiro */
+    gap: 24px;
     justify-content: center;
     align-items: center;
-    margin: 32px 0; /* Aumentado um pouco */
+    margin: 32px 0;
 }
 
 .bloco-conteudo-flex img {
     max-width: 350px;
-    width: 100%; /* Para responsividade até o max-width */
+    width: 100%;
     height: auto;
-    border-radius: 8px; /* Consistente com outros border-radius */
+    border-radius: 8px;
     display: block;
-    /* margin-left/right removidos, o gap e justify-content do flex container cuidam disso */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Para os elementos internos que usavam style* - Idealmente, use classes no HTML */
-.bloco-conteudo-flex > div[style*="flex: 1"] {
-    /* Estilos base para o container de texto */
-}
-.bloco-conteudo-flex > div[style*="display: flex"] { /* Container da imagem (ex: gato) */
-    /* Estilos base se necessário */
-}
-
-
-/* === VÍDEOS === */
 .container-video {
     display: flex;
     width: 100%;
-    flex-wrap: nowrap; /* Mantido, mas pode ser 'wrap' se desejar quebra em telas médias */
-    gap: 20px; /* Aumentado */
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 
 .video-wrapper {
-    flex: 1 1 45%; /* Permite encolher e crescer, base de 45% */
-    min-width: 280px; /* Para evitar que fique muito pequeno antes de empilhar */
+    flex: 1 1 45%;
+    min-width: 280px;
 }
 
 .video-wrapper iframe {
     width: 100%;
-    height: 400px; /* Será ajustado em media query */
+    height: 400px;
     border-radius: 8px;
-    border: none; /* Remover borda padrão do iframe */
+    border: none;
 }
 
-.play { /* Classe para player de áudio/vídeo personalizado? */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    padding: 1em;
-    /* Adicionar mais estilos se for um controle customizado */
-}
-
-/* === GALERIA DE IMAGENS === */
 .galeria-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Padrão para desktop */
-    gap: 16px; /* Aumentado */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
@@ -236,15 +230,14 @@ article a:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Ou sua cor preferida */
-    display: none; /* Importante: escondido por padrão */
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -254,19 +247,17 @@ article a:hover {
 }
 
 #overlay.active {
-    display: flex; /* Torna visível */
+    display: flex;
     opacity: 1;
     visibility: visible;
 }
 
 #overlay img.fullscreen {
-    max-width: 90vw; /* Exemplo */
-    max-height: 90vh; /* Exemplo */
-    /* Outros estilos da sua imagem fullscreen */
+    max-width: 90vw;
+    max-height: 90vh;
 }
 
 #overlay button {
-    /* Seus estilos para os botões prev/next */
     background-color: rgba(46, 46, 46, 0.5);
     border: 1px solid rgba(255,255,255,0.2);
     color: #00ff00c2;
@@ -293,16 +284,13 @@ article a:hover {
     color: #000;
 }
 
-
-
-/* === BOTÕES === */
-.botao_galeria, .btn { /* Estilo comum para botões */
-    display: inline-block; /* Para que width: fit-content funcione bem e permita margin auto */
-    padding: 12px 24px; /* Padding aumentado */
+.botao_galeria, .btn {
+    display: inline-block;
+    padding: 12px 24px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    letter-spacing: 1px; /* Reduzido para melhor leitura */
+    letter-spacing: 1px;
     text-align: center;
     cursor: pointer;
     -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
@@ -312,8 +300,8 @@ article a:hover {
 .botao_galeria {
     background-color: #00ff00c2;
     color: #000;
-    text-shadow: 1px 1px 1px #def8cc; /* Ajustado */
-    margin: 20px auto; /* Para centralizar se for display block ou inline-block com text-align center no pai */
+    text-shadow: 1px 1px 1px #def8cc;
+    margin: 20px auto;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -324,10 +312,10 @@ article a:hover {
     transform: translateY(-2px);
 }
 
-.btn { /* Botão genérico */
+.btn {
     background-color: #cdc7c3;
     color: #333;
-    margin-left: auto; /* Mantido */
+    margin-left: auto;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -338,69 +326,67 @@ article a:hover {
     transform: translateY(-2px);
 }
 
-/* === ÍCONES SOCIAIS === */
 .div_icons {
     display: flex;
     justify-content: center;
-    align-items: center; /* Adicionado para alinhar verticalmente os ícones se tiverem alturas diferentes */
+    align-items: center;
     padding: 1em 0;
 }
 
 .div_icons img {
     padding: 1rem;
-    width: 4rem; /* Ajustado para um valor intermediário, pode ser responsivo */
-    height: auto; /* Para manter proporção */
-    -webkit-transition: transform 0.3s ease; /* Ajustada duração e timing function */
+    width: 3rem;
+    height: auto;
+    -webkit-transition: transform 0.3s ease;
     transition: transform 0.3s ease;
 }
 
 .div_icons img:hover {
-    -webkit-transform: scale(1.15); /* Aumentado um pouco o scale */
+    -webkit-transform: scale(1.15);
     transform: scale(1.15);
 }
 
-/* === OVERLAY DE IMAGEM (Lightbox) === */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Levemente mais claro */
-    display: none; /* Escondido por padrão, JS controla a exibição */
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 0; /* Para transição de fade */
-    visibility: hidden; /* Para transição de fade */
+    opacity: 0;
+    visibility: hidden;
     -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-#overlay.active { /* Classe a ser adicionada via JS */
+#overlay.active {
     display: flex;
     opacity: 1;
     visibility: visible;
 }
 
 #overlay img.fullscreen {
-    max-width: 90vw; /* Usar unidades de viewport para melhor responsividade */
+    max-width: 90vw;
     max-height: 90vh;
     border-radius: 5px;
     box-shadow: 0 0 30px rgba(0,255,0,0.5);
 }
 
 #overlay button {
-    background-color: rgba(46, 46, 46, 0.5); /* Cor de fundo mais escura */
+    background-color: rgba(46, 46, 46, 0.5);
     border: 1px solid rgba(255,255,255,0.2);
-    color: #00ff00c2; /* Cor do ícone */
-    font-size: 2.5rem; /* Aumentado */
-    padding: 8px 15px; /* Ajustado */
+    color: #00ff00c2;
+    font-size: 2.5rem;
+    padding: 8px 15px;
     cursor: pointer;
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    border-radius: 50%; /* Botões redondos */
+    border-radius: 50%;
     width: 50px;
     height: 50px;
     display: flex;
@@ -419,18 +405,17 @@ article a:hover {
     border-color: #00ff00c2;
 }
 
-/* === SEÇÕES DE DIVULGAÇÃO (Parallax Fixo) === */
 .secao-divulgacao, .secao-divulgacao1 {
     background-size: contain;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Problemas em mobile, será ajustado */
+    background-attachment: fixed;
     background-position: center center;
-    min-height: 40em; /* Usar min-height para garantir que o conteúdo interno seja visível */
+    min-height: 40em;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3em 0; /* Removida margem lateral, o container pai controla */
+    margin: 3em 0;
     -webkit-transition: filter 0.5s ease-in-out;
     transition: filter 0.5s ease-in-out;
 }
@@ -453,7 +438,6 @@ article a:hover {
     filter: grayscale(0.1);
 }
 
-/* === RODAPÉ === */
 .rodape {
     color: white;
     background-color: #050704;
@@ -461,7 +445,8 @@ article a:hover {
     padding: 1.8rem;
     text-shadow: 2px 2px 3px #091805;
     letter-spacing: 2px;
-    font-size: .8rem; /* Aumentado um pouco */
+    font-size: 0.7rem;
+    margin-top: 0;
 }
 
 .rodape a {
@@ -471,36 +456,38 @@ article a:hover {
     transition: color 0.3s ease;
 }
 .rodape a:hover {
-    color: #00ff00c2; /* Efeito hover para links no rodapé */
+    color: #00ff00c2;
 }
 
+.div_icons img{
+    width: 4rem; 
+}
 
-/* === SLIDER DE IMAGENS === */
-.slid { /* Container para centralizar o slider, se necessário */
+.slid {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2em 0; /* Aumentado padding vertical */
+    padding: 2em 0;
 }
 
 .slider {
-    background: #1c1c1c; /* Fundo mais escuro para contraste */
+    background: #1c1c1c;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.25);
-    height: 400px; /* Altura fixa, pode ser responsiva se as imagens tiverem aspect-ratio consistente */
+    height: 400px;
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 100%; /* Responsivo */
-    max-width: 960px; /* Largura máxima do slider original */
+    width: 100%;
+    max-width: 960px;
 }
 
-.slider::before, .slider::after { /* Efeito de fade nas laterais */
-    background: linear-gradient(to right, rgb(5, 7, 4) 0%, rgba(5, 7, 4, 0) 100%); /* Ajustado para fundo escuro */
+.slider::before, .slider::after {
+    background: linear-gradient(to right, rgb(5, 7, 4) 0%, rgba(5, 7, 4, 0) 100%);
     content: "";
-    height: 100%; /* Ajustado para altura do slider */
+    height: 100%;
     position: absolute;
-    top: 0; /* Alinhado ao topo */
-    width: 100px; /* Reduzido um pouco */
+    top: 0;
+    width: 100px;
     z-index: 2;
 }
 
@@ -518,73 +505,60 @@ article a:hover {
     -webkit-animation: scroll 40s linear infinite;
     animation: scroll 40s linear infinite;
     display: flex;
-    /* width: calc(330px * 14); A largura do slide (330px) pode precisar ser responsiva.
-       Se for, este cálculo e a animação precisarão de ajuste. */
-    width: -webkit-calc(330px * 14); /* Para animação baseada em largura fixa */
+    width: -webkit-calc(330px * 14);
     width: calc(330px * 14);
 }
 
 .slider .slide {
-    height: 400px; /* Consistente com a altura do slider */
-    width: 330px; /* Largura fixa do slide, impacta a responsividade do carrossel */
-    /* Idealmente, as imagens dentro do slide devem ser responsivas (max-width: 100%, height: auto) */
+    height: 400px;
+    width: 330px;
 }
-.slider .slide img { /* Para garantir que a imagem preencha o slide */
+.slider .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Para preencher o slide sem distorcer */
+    object-fit: cover;
 }
 
-
-/* === ANIMAÇÕES === */
 @-webkit-keyframes scroll {
     0% { -webkit-transform: translateX(0); transform: translateX(0); }
-    100% { -webkit-transform: translateX(calc(-330px * 7)); transform: translateX(calc(-330px * 7)); } /* Metade do track para loop */
+    100% { -webkit-transform: translateX(calc(-330px * 7)); transform: translateX(calc(-330px * 7)); }
 }
 @keyframes scroll {
     0% { -webkit-transform: translateX(0); transform: translateX(0); }
     100% { -webkit-transform: translateX(calc(-330px * 7)); transform: translateX(calc(-330px * 7)); }
 }
 
-
-/* === MEDIA QUERIES === */
-
-/* Telas Pequenas (Smartphones) - até 767px */
 @media screen and (max-width: 767px) {
     .hero-content {
-        margin-top: 100px; /* Reduzido */
+        margin-top: 100px;
         width: 90%;
-        letter-spacing: 0.05em; /* Reduzido */
+        letter-spacing: 0.05em;
     }
     .hero-content h1 {
-        font-size: 2.5rem; /* Reduzido */
+        font-size: 2.5rem;
     }
-
     .hero nav ul {
-        margin: 20px 10px 0 0; /* Margem direita reduzida */
-        text-align: center; /* Centralizar nav em mobile */
+        margin: 20px 10px 0 0;
+        text-align: center;
     }
     .hero nav li {
-        display: block; /* Empilhar itens */
-        margin: 0 0 10px 0; /* Espaçamento entre itens empilhados */
-        width: 80%; /* Para não ocupar a tela toda */
+        display: block;
+        margin: 0 0 10px 0;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
     .hero nav a {
-        font-size: 0.9rem; /* Aumentar um pouco para toque */
+        font-size: 0.9rem;
         padding: 0.9rem;
     }
-
     #main, .secao-divulgacao, .secao-divulgacao1 {
-        background-attachment: scroll; /* Melhor para performance e compatibilidade em mobile */
+        background-attachment: scroll;
     }
-
     article p {
-        margin: 1em 0.5em 1em; /* Reduzir margens laterais do parágrafo */
-        letter-spacing: normal; /* Normalizar espaçamento para melhor leitura em telas pequenas */
+        margin: 1em 0.5em 1em;
+        letter-spacing: normal;
     }
-
     .bloco-conteudo-flex {
         flex-direction: column;
         align-items: center;
@@ -592,59 +566,50 @@ article a:hover {
     }
     .bloco-conteudo-flex > div,
     .bloco-conteudo-flex > img {
-        width: 100% !important; /* Garante que ocupe toda a largura na coluna */
-        max-width: 100% !important; /* Evita que a imagem exceda se tiver max-width fixo menor */
+        width: 100% !important;
+        max-width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    /* Este seletor é frágil. Se possível, adicione classes no HTML */
     .bloco-conteudo-flex > div[style*="flex: 1"] {
-        text-align: left; /* Ou center, dependendo do design */
+        text-align: left;
     }
-    .bloco-conteudo-flex img { /* Imagens dentro do bloco já são width 100% pelo seletor acima */
-        max-width: 90%; /* Limita a imagem a 90% do container para não colar nas bordas */
+    .bloco-conteudo-flex img {
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
-    /* Para o container da imagem de gato, que também se torna coluna */
     .bloco-conteudo-flex > div[style*="display: flex"] {
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
-    /* Oculta o spacer div dentro do container da imagem de gato em mobile */
     .bloco-conteudo-flex > div[style*="display: flex"] > div[style*="flex: 1"] {
         display: none;
     }
-
-
     .container-video {
         flex-direction: column;
         gap: 15px;
     }
     .video-wrapper iframe {
-        height: 250px; /* Altura ajustada para mobile */
+        height: 250px;
     }
-
     .galeria-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em mobile */
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    .galeria-container img:hover { /* Desabilitar hover scale em touch devices ou manter sutil */
+    .galeria-container img:hover {
         -webkit-transform: none;
         transform: none;
     }
-    
     .secao-divulgacao, .secao-divulgacao1 {
-        min-height: 25em; /* Altura reduzida */
+        min-height: 25em;
         margin: 2em 0;
     }
-
     .div_icons img {
-        width: 3rem; /* Ícones menores em mobile */
+        width: 3rem;
         padding: 0.5rem;
     }
-
     #overlay button {
         font-size: 1.8rem;
         padding: 5px 10px;
@@ -653,13 +618,11 @@ article a:hover {
     }
     #overlay button.prev { left: 5px; }
     #overlay button.next { right: 5px; }
-
-    .slider { height: 250px; } /* Altura do slider menor */
-    .slider .slide { height: 250px; } /* Altura do slide menor */
+    .slider { height: 250px; }
+    .slider .slide { height: 250px; }
     .slider::before, .slider::after { height: 250px; width: 50px; }
 }
 
-/* Telas Médias (Tablets) - de 768px até 1023px */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .container {
         padding: 15px;
@@ -673,56 +636,64 @@ article a:hover {
     .hero nav a {
         font-size: 0.9rem;
     }
-
     article p {
         margin: 1em 1.5em 1em;
     }
-    
-    /* Ajustes para bloco-conteudo-flex em tablet, se diferente do mobile ou desktop */
-    /* Por padrão, ele voltará ao display:flex row. Se quiser coluna, defina aqui. */
-    /* Exemplo: se ainda quiser empilhado em tablets verticais */
-    /* .bloco-conteudo-flex { flex-direction: column; } */
-
     .video-wrapper iframe {
         height: 320px;
     }
-
     .galeria-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablet */
+        grid-template-columns: repeat(3, 1fr);
     }
-
     .secao-divulgacao, .secao-divulgacao1 {
         min-height: 30em;
     }
 }
 
-/* Telas Grandes (Monitores Padrão) - de 1024px até 1200px */
-/* Os estilos base já cobrem bem esta faixa se o .container tem max-width: 1200px.
-   Adicione aqui apenas se precisar de ajustes específicos para esta faixa. */
 @media screen and (min-width: 1024px) {
-    /* O .header e .header_nav que estavam na query min-width: 48em podem vir para cá
-       se forem específicos para desktop. */
-    .header { /* Supondo que você tenha uma classe .header */
+    .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* text-align: center; e margin: auto; (do seu código original) são contraditórios com flex. Ajuste conforme necessário. */
     }
-
-    .hero nav a { /* Retomando o tamanho maior para desktop */
-        font-size: 1rem; /* Ou o .8rem original se preferir */
+    .hero nav a {
+        font-size: 1rem;
         letter-spacing: 2px;
     }
-    
     .galeria-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 colunas como no design original para desktop */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Telas Extra Grandes - acima de 1200px (ou 1201px para evitar sobreposição com max-width do .container) */
 @media screen and (min-width: 1201px) {
     .hero-content h1 {
-        font-size: 4.5rem; /* Um pouco maior para telas bem grandes */
+        font-size: 4.5rem;
     }
-    /* Outros ajustes para aproveitar mais espaço em telas muito largas */
+    .hero nav ul {
+        margin-right: 80px;
+    }
+    .hero nav a {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    .bloco-conteudo-flex img {
+        max-width: 400px;
+    }
+    .video-wrapper iframe {
+        height: 400px;
+    }
+    .galeria-container img {
+        width: 100%;
+        height: auto;
+    }
+    .secao-divulgacao, .secao-divulgacao1 {
+        min-height: 40em;
+    }
+    .slider { height: 400px; }
+    .slider .slide { height: 400px; }
+    .slider::before, .slider::after { height: 400px; width: 100px; }
+    .slider .slide-track {
+        width: -webkit-calc(330px * 14);
+        width: calc(330px * 14);
+    }
 }
