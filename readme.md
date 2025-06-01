@@ -6,6 +6,8 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/SimonePenido/Peter-Steele-Tributo)
 ![License](https://img.shields.io/github/license/SimonePenido/Peter-Steele-Tributo)
 
+![peter-steele-tribute netlify app](https://github.com/user-attachments/assets/da083669-025a-401e-8969-e492be898fc0)
+
 ## Sobre o Projeto
 
 **Peter Steele Tributo** é um site dedicado a homenagear o lendário vocalista Peter Steele, trazendo informações, curiosidades, discografia e uma galeria de fotos marcantes. O projeto foi desenvolvido com foco em performance, responsividade e acessibilidade, utilizando as melhores práticas de desenvolvimento web.
